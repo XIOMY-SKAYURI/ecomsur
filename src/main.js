@@ -1,26 +1,19 @@
 // All movie
 document.addEventListener("DOMContentLoaded", function() {
-  'use strict'
-  //  Listen for search submittal
-    let type = document.querySelector(".all-movie").getAttribute('value');
-    const BASE_URL = 'http://www.omdbapi.com/?s=';
-    const key = '&apikey=6e5e2c65';
-    let searchString = BASE_URL + type.split(' ').join('+')+ key ;
+  "use strict"
+
+    let type = document.querySelector(".all-movie").getAttribute("value");
+    const BASE_URL = "http://www.omdbapi.com/?s=";
+    const key = "&apikey=6e5e2c65";
+    let searchString = BASE_URL + type.split(" ").join("+")+ key ;
 
     console.log(searchString)
 
     getData(searchString, listAllMovies);
 
     
-
-
-  // Lists the search result as links in the target div
   function listAllMovies(searchResp) {
     const resultContainer = document.querySelector(".all-movie");
-    // clear any prior search content
-    // document.querySelector("#movie-title").value = '';
-    // resultContainer.innerHTML = '';
-    
 
     let results = searchResp.Search;
     for ( let i = 0; i < results.length; i++) {
@@ -38,37 +31,49 @@ document.addEventListener("DOMContentLoaded", function() {
 
         <div class="aditional-information">
           <div>
-          <span></span><p  id="movie-type-${i}" >Type:${type}</p>
+          <span></span><p  id="movie-type-${i}" ><strong>Type:</strong>${type}</p>
           </div>
 
           <span></span>
 
           <div>
-            <span></span><p  id="movie-year-${i}" >Year:${year}</p>
+            <span></span><p  id="movie-year-${i}" ><strong>Year:</strong>${year}</p>
           </div>
         </div>
 
-        <button class="add">add</button>
+        <button class="add" id="movie-btn-${i}">buy</button>
         
 
       </div>
       `;
-     
-      resultContainer.insertAdjacentHTML('beforeend', cardMovie);
-
   
-    }
-  }
+      resultContainer.insertAdjacentHTML("beforeend", cardMovie);
 
-  // Fetch API call to get json from omdbiapi or favorites
+      resultContainer.querySelector(`#movie-btn-${i}`).addEventListener("click", function(){
+        addCar(results[i])
+      })
+    }
+    }
+    function addCar(result) {
+      
+      let listMovie = document.querySelector(".list-movie-car");
+   
+      listMovie.insertAdjacentHTML("beforeend", `<div><li href="#" id="style-list">${result["Title"]}</li>
+      <img class="trash" src="./img/trash.png"  ></div>
+      `)
+   
+    }
+   
+  
+
   function getData(targetURL, resultCallback) {
     fetch(targetURL, {
-      method: 'get'
+      method: "get"
     })
     .then(function(response) {
       return response.json();
     })
-    // send the search results to the list generator
+
     .then(function(jsonData) {
       resultCallback(jsonData);
     })
@@ -79,17 +84,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
  
 }); 
-// wait until DOM is loaded
+
+
+// search movie for name
 document.addEventListener("DOMContentLoaded", function() {
-  'use strict'
-  //  Listen for search submittal
+  "use strict"
+
   document.querySelector('#search-button').addEventListener("click", function(e){
     const hiddeAllMovie = document.querySelector(".all-movie")
-    hiddeAllMovie.style.display = 'none';
+    hiddeAllMovie.style.display = "none";
     let title = document.getElementById("movie-title").value;
-    const BASE_URL = 'http://www.omdbapi.com/?s=';
-    const key = '&apikey=6e5e2c65';
-    let searchString = BASE_URL + title.split(' ').join('+')+ key ;
+    const BASE_URL = "http://www.omdbapi.com/?s=";
+    const key = "&apikey=6e5e2c65";
+    let searchString = BASE_URL + title.split(" ").join("+")+ key ;
 
     console.log(searchString)
 
@@ -97,10 +104,9 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
 
-  // Lists the search result as links in the target div
   function listMovies(searchResp) {
     const resultContainer = document.querySelector(".search-results");
-    // clear any prior search content
+    
     document.querySelector("#movie-title").value = '';
     resultContainer.innerHTML = '';
     
@@ -121,38 +127,51 @@ document.addEventListener("DOMContentLoaded", function() {
 
         <div class="aditional-information">
           <div>
-            <span></span><p  id="movie-type-${i}" >Type:${type}</p>
+            <span></span><p  id="movie-type-${i}" ><strong>Type:</strong>${type}</p>
           </div>
 
           <span></span>
 
           <div>
-            <span></span><p  id="movie-year-${i}" >Year:${year}</p>
+            <span></span><p  id="movie-year-${i}" ><strong>Year:</strong>${year}</p>
           </div>
 
 
         </div>
 
-        <button class="add">add</button>
+        <button class="add" id="movie-btn-${i}">buy</button>
         
 
       </div>
       `;
      
-      resultContainer.insertAdjacentHTML('beforeend', cardMovie);
+      resultContainer.insertAdjacentHTML("beforeend", cardMovie);
 
+      resultContainer.querySelector(`#movie-btn-${i}`).addEventListener("click", function(){
+        addCar(results[i])
+      })
     }
-  }
+    }
+    function addCar(result) {
+      
+      let listMovie = document.querySelector(".list-movie-car");
+   
+      listMovie.insertAdjacentHTML("beforeend", `<div><li href="#" id="style-list">${result["Title"]}</li>
+      <img class="trash" src="./img/trash.png"  ></div>
+      `)
+   
+    }
 
+  
   // Fetch API call to get json from omdbiapi or favorites
   function getData(targetURL, resultCallback) {
     fetch(targetURL, {
-      method: 'get'
+      method: "get"
     })
     .then(function(response) {
       return response.json();
     })
-    // send the search results to the list generator
+  
     .then(function(jsonData) {
       resultCallback(jsonData);
     })
@@ -164,6 +183,3 @@ document.addEventListener("DOMContentLoaded", function() {
  
 });
 
-
-  
- 

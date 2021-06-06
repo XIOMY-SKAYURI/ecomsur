@@ -4,7 +4,7 @@
   list-style: none;
   text-decoration: none;
   box-sizing: border-box; 
-  max-width: 1440px;
+   max-width: auto; 
 }
 
 :root {
@@ -101,6 +101,10 @@ li a {
 }
 
 /*MAIN*/
+section{
+  display: flex;
+  flex-direction: row;
+}
 
   /*title*/
 h1{
@@ -150,6 +154,11 @@ h1{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.container p{
+color: #ffffff;
+font-size: 18px;
 }
 
 .search-results{
@@ -231,6 +240,7 @@ text-shadow: var(--text-shadow);
 
 .add{
   width: 80px;
+  height: 30px;
  background-color:  #EB5459;
  border: none;
  border-radius: 5px;
@@ -240,17 +250,170 @@ text-shadow: var(--text-shadow);
  cursor: pointer;
 }
 
-/* TABLET
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
+.car{
+  margin-top: 10px;
+  width: 250px;
+  height: auto;
+  background-color: azure;
+  padding: 10px;
+}
+
+.car div{
+  display: flex;
+ flex-direction: row;
+ justify-content: space-around;
+ align-items: center;
+}
+
+h2{
+  font-size: 16px;
+}
+
+.list-movie-car{
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+.list-movie-car div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.trash{
+  width: 20px;
+  height: 20px;
+}
+#style-list{
+  height: 30px;
+  width: 150px;
+  background-color: #EB5459;
+
+}
+/* TABLET*/
+
+@media only  screen and (max-width: 990px)  {
+  .wrapper {
+    background-image: url(./img/joker.jpg);
   }
-} */
+  
+  
+  
+  .navbar {
+    font-size: 12px;
+  }
+  .navbar nav{
+    padding: 5px 50px 5px 5px;
+  }
+  
+  ul{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #img__nav{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  
+  h1{
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .group-search{
+    padding: 10px;
+  }
+  
+  #movie-title{
+    width: 300px;
+  }
+    
+  .containerFather {
+    width: auto;
+  }
+
+  .search-results{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .all-movie{
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+  
+  
+  .card-movie{
+    width: 150px;
+    height:250px ;
+    margin-bottom: 15px;
+    background-color: rgba(192, 192, 192, 0.5);
+  }  
+  
+  .movieTitle{
+    font-size: 12px;
+    width: 120px;
+    height: 50px;
+    margin-bottom: 5px;
+  }
+  
+  .imgMovie{
+    width: 80px;
+    height: 120px;
+    margin: 0px;
+  }
+  
+  .img{
+    width: 80px;
+    height: 120px;
+    margin: 0px;
+  }
+  
+    
+  .aditional-information div span{
+    width: 5px;
+    height: 5px;
+  }
+
+  .aditional-information div {
+   width: 50px;
+  }
+
+  .aditional-information div p{
+    margin-top: 10px;
+    font-size: 9px;
+  }
+  
+  .add{
+    width: 80px;
+    height: 30px;
+   background-color:  #EB5459;
+   border: none;
+   border-radius: 5px;
+   color: #ffffff;
+   font-weight: 600;
+   margin-top:10px ;
+   cursor: pointer;
+  }
+
+  section{
+    display: flex;
+   flex-direction: column-reverse;
+   align-items: center;
+   justify-content: center;
+  
+  }
+}
 
 /*MOBILE*/
-@media only screen and (max-width: 411px) {
+@media only screen and (max-width: 400px) {
   .wrapper {
-    background-image: url(./img/mobile.jpg);
+    background-image: url(./img/cine.jpg);
   }
   
   /*NAV*/
@@ -290,62 +453,54 @@ text-shadow: var(--text-shadow);
   }
     
   .containerFather {
-    width: 411px;
+    width: 400px;
   }
 
   .search-results{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
   }
   
   .all-movie{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 
   }
   
     /*card*/
   .card-movie{
-    width: 150px;
-    height:180px ;
+    width: 250px;
+    height:320px ;
     margin-bottom: 15px;
-    background-color: #7f69a5;
+    background-color: rgba(192, 192, 192, 1);
     opacity: 0.8;
   }  
   
   .movieTitle{
-    font-size: 12px;
-    width: 100px;
+    font-size: 18px;
+    width: 300px;
     height: 50px;
     margin-bottom: 5px;
   }
   
   .imgMovie{
-    width: 50px;
-    height: 100px;
+    width: 150px;
+    height: 200px;
     margin: 0px;
   }
   
   .img{
-    width: 50px;
-    height: 100px;
+    width: 150px;
+    height: 200px;
     margin: 0px;
   }
   
   .aditional-information{
     display: none;
   }
+
   
-  .add{
-    width: 80px;
-   background-color:  #EB5459;
-   border: none;
-   border-radius: 5px;
-   color: #ffffff;
-   font-weight: 600;
-   margin-top:10px ;
-   cursor: pointer;
-  }
+  
 }
 
 
