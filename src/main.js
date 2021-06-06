@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
   "use strict"
 
     let type = document.querySelector(".all-movie").getAttribute("value");
-    const BASE_URL = "http://www.omdbapi.com/?s=";
+    const BASE_URL = "//www.omdbapi.com/?s=";
     const key = "&apikey=6e5e2c65";
     let searchString = BASE_URL + type.split(" ").join("+")+ key ;
 
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const hiddeAllMovie = document.querySelector(".all-movie")
     hiddeAllMovie.style.display = "none";
     let title = document.getElementById("movie-title").value;
-    const BASE_URL = "http://www.omdbapi.com/?s=";
+    const BASE_URL = "//www.omdbapi.com/?s=";
     const key = "&apikey=6e5e2c65";
     let searchString = BASE_URL + title.split(" ").join("+")+ key ;
 
